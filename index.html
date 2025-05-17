@@ -16,7 +16,7 @@
   <meta property="og:description"
     content="Professional portfolio of Md. Adnan Hossain - Creative Designer & Developer" />
   <meta property="og:image" content="pfp.jpg" />
-  <link rel="shortcut icon" type="image/x-icon" href="pfp.jpg" />
+  <link rel="shortcut icon" type="image/x-icon" href="pfp.png" />
   <link rel="stylesheet" href="style.css">
   <!-- Fontawesome CDN Link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -40,16 +40,24 @@
   <nav>
     <div class="navbar">
       <div class="logo"><a href="#">AH<span>.</span></a></div>
-      <ul class="menu">
+
+      <div class="menu-btn" id="menu-btn">
+        <div class="hamburger"></div>
+      </div>
+
+      <ul class="menu" id="menu">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
-        <div class="cancel-btn">
+        <div class="close-btn" id="close-btn">
           <i class="fas fa-times"></i>
         </div>
       </ul>
+
       <div class="media-icons">
+
         <a href="https://wa.me/01981074736" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="https://discord.com/users/791648195725623316" target="_blank" aria-label="Discord"><i
             class="fab fa-discord"></i></a>
@@ -58,9 +66,6 @@
         <a href="https://instagram.com/visualsbyadnan" target="_blank" aria-label="Instagram"><i
             class="fab fa-instagram"></i></a>
       </div>
-    </div>
-    <div class="menu-btn">
-      <i class="fas fa-bars"></i>
     </div>
   </nav>
 
@@ -94,7 +99,7 @@
       <div class="title"><span>About Me</span></div>
       <div class="about-details">
         <div class="left">
-          <img src="pfp.jpg" alt="Portrait of Md. Adnan Hossain" loading="lazy">
+          <img src="pfp.png" alt="Portrait of Md. Adnan Hossain" loading="lazy">
         </div>
         <div class="right">
           <div class="topic">Chill Designer Guy</div>
