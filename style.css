@@ -17,13 +17,11 @@
   font-family: 'Poppins', sans-serif;
 }
 
-
 body {
   background-color: var(--dark);
-  color: var(--light); /* Now using the brighter white */
+  color: var(--light);
   overflow-x: hidden;
 }
-
 
 /* Preloader */
 #preloader {
@@ -431,6 +429,106 @@ section {
   margin-bottom: 20px;
 }
 
+/* Portfolio Carousel */
+.portfolio {
+  padding: 80px 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.carousel-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  animation: scroll 40s linear infinite;
+  width: calc(250px * 15);
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+.carousel-container img {
+  width: 250px;
+  height: 312.5px;
+  object-fit: contain;
+  background: rgba(45, 52, 54, 0.5);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.carousel-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 179, 255, 0.3);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 12));
+  }
+}
+
+/* Web Projects Section */
+.web-projects {
+  padding: 80px 0;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.project-card {
+  background: rgba(45, 52, 54, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 179, 255, 0.3);
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 20px;
+}
+
+.project-info h3 {
+  color: var(--light);
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.project-info .btn-work {
+  display: inline-block;
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
 /* Services Section */
 .boxes {
   display: grid;
@@ -748,6 +846,22 @@ footer .text span {
   .text-three {
     font-size: 20px !important;
   }
+  
+  .carousel-container img {
+    width: 200px;
+    height: 250px;
+  }
+  
+  .carousel-track {
+    width: calc(200px * 15);
+    animation: scroll 30s linear infinite;
+  }
+  
+  @keyframes scroll {
+    100% {
+      transform: translateX(calc(-200px * 12));
+    }
+  }
 }
 
 @media (max-width: 576px) {
@@ -767,16 +881,34 @@ footer .text span {
   .boxes {
     grid-template-columns: 1fr;
   }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .carousel-container img {
+    width: 150px;
+    height: 187.5px;
+  }
+  
+  .carousel-track {
+    width: calc(150px * 15);
+    animation: scroll 25s linear infinite;
+  }
+  
+  @keyframes scroll {
+    100% {
+      transform: translateX(calc(-150px * 12));
+    }
+  }
 }
 
 /* --- Custom Overrides --- */
-
 .btn-hire, .btn-work {
   padding: 12px 24px;
   white-space: nowrap;
   width: auto;
 }
-
 
 @media (max-width: 576px) {
   .button {
@@ -786,7 +918,6 @@ footer .text span {
   }
 }
 
-
 @media (max-width: 992px) {
   .about-details {
     flex-direction: row !important;
@@ -795,16 +926,7 @@ footer .text span {
   }
 }
 
-
 /* --- Button Font Color Update --- */
-
-.btn-hire, .btn-work {
-  color: #ffffff !important;
-}
-
-
-/* --- Enforce White Button Text Color --- */
-
 .btn-hire, .btn-work {
   color: #ffffff !important;
 }

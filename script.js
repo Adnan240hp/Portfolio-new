@@ -83,3 +83,20 @@ document.getElementById("year").textContent = new Date().getFullYear();
 document.addEventListener("DOMContentLoaded", function() {
   reveal();
 });
+
+// Auto-scrolling carousel with pause on hover
+document.addEventListener('DOMContentLoaded', function() {
+  const carouselTrack = document.querySelector('.carousel-track');
+  
+  // Clone images for infinite loop
+  if (carouselTrack) {
+    const images = carouselTrack.querySelectorAll('img');
+    if (images.length > 0) {
+      const firstFew = Array.from(images).slice(0, 3);
+      firstFew.forEach(img => {
+        const clone = img.cloneNode(true);
+        carouselTrack.appendChild(clone);
+      });
+    }
+  }
+});
