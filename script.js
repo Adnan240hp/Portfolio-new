@@ -40,7 +40,7 @@ navLinks.forEach(link => {
 
 // Close menu when clicking outside
 document.addEventListener('click', function(event) {
-  if (!menu.contains(event.target) && event.target !== menuBtn) {
+  if (!menu.contains(event.target) && event.target !== menuBtn && !menuBtn.contains(event.target)) {
     menu.classList.remove('active');
     body.classList.remove('menu-open');
   }
@@ -82,6 +82,37 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // Initialize scroll reveal on page load
 document.addEventListener("DOMContentLoaded", function() {
   reveal();
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+    
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// Project card hover effect
+const projectCards = document.querySelectorAll('.project-card');
+projectCards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  });
 });
 
 // Auto-scrolling carousel with pause on hover
